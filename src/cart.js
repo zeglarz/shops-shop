@@ -1,3 +1,5 @@
+
+
 const cartButtonTemplate = `
 
 <style>
@@ -23,7 +25,7 @@ const cartModalTemplate = `
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Cart</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -41,13 +43,14 @@ const cartModalTemplate = `
 `;
 
 const cartItemTemplate = ({
+  imageURL,
   productName,
   productPrice,
   productId,
   quantity
 }) => `
   <li class="list-group-item">
-    Name: ${productName} Price: ${productPrice} Id: ${productId} ilość: ${quantity} 
+    Produkt: ${productName}<br> Cena: ${productPrice}<br> ilość: ${quantity} <br>
     <button onclick="Cart.removeItem('${productId}')" type="button" class="btn btn-secondary"> remove </button>
   </li>
   `
@@ -83,7 +86,7 @@ Cart = {
         quantity: 1
       };
     } else {
-      CartItems[productId]["quantity"] += 1;
+      CartItems[productId]["quantity"] += 1; // lub   CartItems[productId].quantity 
     }
     console.log(productId, productName, productPrice);
   
