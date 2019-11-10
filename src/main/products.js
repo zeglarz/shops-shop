@@ -4,14 +4,14 @@ const productsListContainer = `
         ${PRODUCTS.map((product) => productCard(product))}
 </div>.
 `;
-
-function productCard(product) {
+//dekon
+function productCard({name, description, imageURL, id, price}) {
     return `<div class="card" style="width: 18rem;">
-    <img src="${product.imageURL}" class="card-img-top" alt="...">
+    <img src="${imageURL}" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">${product.name}</h5>
-      <p class="card-text">${product.description}</p>
-      <button class="btn btn-primary" onclick="Cart.addItem('${product.id}', '${product.name}', ${product.price})">
+      <h5 class="card-title">${name}</h5>
+      <p class="card-text">${description}</p>
+      <button class="btn btn-primary" onclick="Cart.addItem('${id}', '${name}', ${price})">
       dodaj do koszyka
       </button>
     <button class="btn btn-secondary">Zobacz więcej</button>
@@ -48,15 +48,3 @@ var carusel = {`
 `}
 */
 
-CartItems = {};
-
-Cart = {
-    items: [],
-    addItem: (productId, productName, productPrice) => {
-        console.log(productId, productName, productPrice);
-        renderCartModal();
-        CartItems[productId] = {productPrice, productName};
-
-        console.log(CartItems);
-}
-}
