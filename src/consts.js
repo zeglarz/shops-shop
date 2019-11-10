@@ -6,7 +6,8 @@ PRODUCTS = [
         description: `
         ja to pier**** sciągam kominiare!
         `,
-        imageURL: 'https://i.ytimg.com/vi/xiuZ6wPaXBc/maxresdefault.jpg'
+        imageURL: 'https://i.ytimg.com/vi/xiuZ6wPaXBc/maxresdefault.jpg',
+        id: 'sda332'
     },
     {
         name: 'Maczeta',
@@ -14,6 +15,7 @@ PRODUCTS = [
         description: `
         Idealnie ostra, świetna do uciszania delikwentów!
         `,
-        imageURL: 'https://www.militaria.pl/upload/wysiwyg/gfx/produkty/noze/ColdSteel/97KMSZ/Maczeta-Cold-Steel-Kukri-Machete.jpg'
+        imageURL: 'https://www.militaria.pl/upload/wysiwyg/gfx/produkty/noze/ColdSteel/97KMSZ/Maczeta-Cold-Steel-Kukri-Machete.jpg',
+        id: 'dasd333'
     }
 ];

@@ -5,9 +5,9 @@ const cartButtonTemplate = `
         position: fixed;
         bottom: 40px;
         right: 40px;
-        border-radius: 100%;
+        height: 80px;
         width: 80px;
-        heigth: 80px;
+        border-radius: 100%;
     }
 </style>
 
@@ -47,3 +47,15 @@ if (modal) {
     $('body').append(cartModalTemplate);
 }
 };
+
+CartItems = {};
+
+Cart = {
+    items: [],
+    addItem: (productId, productName, productPrice) => {
+        console.log(productId, productName, productPrice);
+        CartItems[productId] = {productPrice, productName};
+        renderCartModal();
+        console.log(CartItems);
+}
+}
