@@ -11,16 +11,15 @@ const cartButtonTemplate = `
     }
 </style>
 
-<button type="button" class="cart-button btn btn-secondary btn-lg" data-toggle="modal" data-target="#exampleModalLong"><img src="src/images/cart.svg"/></button>
+<button type="button" class="cart-button btn btn-secondary btn-lg" data-toggle="modal" data-target="#cart-modal"><img src="src/images/cart.svg"/></button>
 
 `;
 
 $('body').append(cartButtonTemplate);
 
-const renderCartModal = () => {
 const cartModalTemplate = `
 <!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal fade" id="cart-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -29,8 +28,8 @@ const cartModalTemplate = `
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        ${(JSON.stringify(Object.values(CartItems), null, 4))}
+      <div id="cart-items-modal-body" class="modal-body">
+      <!-- dynamic card -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -40,13 +39,19 @@ const cartModalTemplate = `
   </div>
 </div>
 `;
-const modal = document.getElementById('exampleModalLong');
-if (modal) {
-    modal.innerHTML = cartModalTemplate;
+
+const renderCartModal = () => {
+
+const modal = document.getElementById('cart-modal');
+if (!modal) {
+  $('body').append(cartModalTemplate);
+
 } else {
-    $('body').append(cartModalTemplate);
+  const modalBody = document.getElementById('cart-items-modal-body');
+  modalBody.innerText = JSON.stringify(Object.values(CartItems));
 }
 };
+
 
 CartItems = {};
 
@@ -59,3 +64,4 @@ Cart = {
         console.log(CartItems);
 }
 }
+renderCartModal();
