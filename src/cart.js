@@ -40,28 +40,60 @@ const cartModalTemplate = `
 </div>
 `;
 
+const cartItemTemplate = ({
+  productName,
+  productPrice,
+  productId,
+  quantity
+}) => `
+  <li class="list-group-item">
+    Name: ${productName} Price: ${productPrice} Id: ${productId} ilość: ${quantity} 
+    <button onclick="Cart.removeItem('${productId}')" type="button" class="btn btn-secondary"> remove </button>
+  </li>
+  `
+
 const renderCartModal = () => {
 
-const modal = document.getElementById('cart-modal');
-if (!modal) {
-  $('body').append(cartModalTemplate);
+  const modal = document.getElementById('cart-modal');
+  if (!modal) {
+    $('body').append(cartModalTemplate);
 
-} else {
-  const modalBody = document.getElementById('cart-items-modal-body');
-  modalBody.innerText = JSON.stringify(Object.values(CartItems));
-}
+  } else {
+    const modalBody = document.getElementById('cart-items-modal-body');
+    modalBody.innerHTML = `
+  <ul class="list-group list-group-flush">
+    ${Object.values(CartItems).map((cartItem) => cartItemTemplate(cartItem)).join(Cart.items)}
+  </ul>
+  `
+  }
 };
+
 
 
 CartItems = {};
 
 Cart = {
-    items: [],
-    addItem: (productId, productName, productPrice) => {
-        console.log(productId, productName, productPrice);
-        CartItems[productId] = {productPrice, productName};
-        renderCartModal();
-        console.log(CartItems);
-}
+  items: [],
+  addItem: (productId, productName, productPrice) => {
+    if (!CartItems[productId]) {
+      CartItems[productId] = {
+        productId,
+        productPrice,
+        productName,
+        quantity: 1
+      };
+    } else {
+      CartItems[productId]["quantity"] += 1;
+    }
+    console.log(productId, productName, productPrice);
+  
+    renderCartModal();
+    console.log(CartItems);
+  }, 
+  removeItem: (productId) => {
+
+    delete CartItems[productId];
+    renderCartModal();
+  }
 }
 renderCartModal();
