@@ -13,6 +13,9 @@ const productCard = ({name, description, imageURL, id, price}) =>
       dodaj do koszyka
       </button>
     <a href="#/product/${id}" class="btn btn-secondary">Zobacz więcej</a>
+    <button class="btn btn btn-danger" onclick="removeProductById('${id}')">
+      usuń produkt
+      </button>
     </div>
   </div>
     `;
@@ -39,3 +42,7 @@ document.querySelector("main").innerHTML = productsListContainer;
 
 })
 };
+
+function removeProductById(productId) {
+Api.deleteProduct(productId).then((response) => loadProductsPage());
+}
