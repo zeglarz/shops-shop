@@ -27,10 +27,10 @@ Api.getProducts()
   throw error;
 })
 .then((response) => {
-
+    console.log(response);
   const productsListContainer = `
 <div class="container-fluid card-deck">
-        ${PRODUCTS.map((product) => productCard(product))}
+        ${response.map((product) => productCard(product))}
 </div>
 `;
 

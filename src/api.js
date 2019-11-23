@@ -1,5 +1,5 @@
 Api = {
-    getProducts: () => fetch('${BACKEND_HOST_RUL}${PRODUCTS_ROUTE_PATH}').then((response)=>console.log(response)),
+    getProducts: () => fetch(`${BACKEND_HOST_URL}${PRODUCTS_ROUTE_PATH}`).then((response)=> response.json()),
     getProduct:  () => {},
     createProduct: () => {},
     updateProduct: () => {},
