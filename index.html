@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="src/formContainer.css">
     <title>Shops shop</title>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -20,7 +21,26 @@
 </head>
 <body>
 <header>
+
 </header>
+<div id="form-container">
+    <form action="http://localhost/products" method="post">
+        <div class="inputs-group">
+            <label for="name">Shop name:</label>
+            <input type="text" name="name" id="name">
+            <label for="price">Price:</label>
+            <input type="text" name="price" id="price">
+        </div>
+        <div class="inputs-group">
+            <label for="imageURL">Image Url:</label>
+            <input type="text" name="imageURL" id="imageURL">
+
+            <label for="iframe">iframe Url:</label>
+            <input type="text" name="iframe" id="iframe">
+        </div>
+        <button type="button" onclick="onFormSubmit()">Submit</button>
+    </form>
+</div>
 <main>
 
 </main>
@@ -33,6 +53,7 @@
 <script src="src/main/productsPage.js"></script>
 <script src="src/main/productPage.js"></script>
 <script src="src/routing.js"></script>
+<script src="src/formContainer.js"></script>
 
 </body>
 </html>

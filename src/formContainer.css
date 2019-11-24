@@ -1,0 +1,13 @@
+#form-container {
+    background: lightslategray;
+    padding: 10px;
+}
+
+#form-container label, #form-container input {
+    display: block;
+}
+
+.inputs-group {
+    display: inline-block;
+}
+
